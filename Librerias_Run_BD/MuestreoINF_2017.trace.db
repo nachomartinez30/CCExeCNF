@@ -208,3 +208,28 @@ Caused by: org.h2.jdbc.JdbcSQLException: La conexión no fue cerrada por la apli
 The connection was not closed by the application and is garbage collected [90018-192]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 18 more
+2017-08-25 14:24:02 jdbc[47]: null
+org.h2.message.DbException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-192]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:187)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:129)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:102)
+	at org.h2.Driver.connect(Driver.java:72)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at gob.conafor.c.a.b.a(Unknown Source)
+	at gob.conafor.i.a.c.e(Unknown Source)
+	at gob.conafor.i.c.aj.f(Unknown Source)
+	at gob.conafor.i.c.aj.<init>(Unknown Source)
+	at gob.conafor.i.c.cs.<clinit>(Unknown Source)
+	at gob.conafor.i.c.aj.<init>(Unknown Source)
+	at gob.conafor.j.b.aw.<clinit>(Unknown Source)
+	at gob.conafor.ini.vie.F.<init>(Unknown Source)
+	at gob.conafor.ini.vie.Main.main(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 18 more

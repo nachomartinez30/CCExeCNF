@@ -30,7 +30,7 @@ INSERT INTO SYS_Seccion (SeccionID, Seccion, SubSeccion, Formulario, Modulo, Ses
 INSERT INTO SYS_Seccion (SeccionID, Seccion, SubSeccion, Formulario, Modulo, Sesion) VALUES (30, 'Taxonomia', 'Arbolado', 'arboladoG', 'G', NULL);
 INSERT INTO SYS_Seccion (SeccionID, Seccion, SubSeccion, Formulario, Modulo, Sesion) VALUES (31, 'Taxonomia', 'Vegetacion Menor', 'vegetacionMenor', 'H', NULL);
 INSERT INTO SYS_Seccion (SeccionID, Seccion, SubSeccion, Formulario, Modulo, Sesion) VALUES (32, 'Taxonomia', 'Vegetacion Mayor morfotipos creciendo de manera individual', 'vegetacionMayorI', 'H', NULL);
-INSERT INTO SYS_Seccion (SeccionID, Seccion, SubSeccion, Formulario, Modulo, Sesion) VALUES (33, 'Taxonomi', 'Vegetacion Mayor morfotipos creciendo de manera gregaria', 'vegetacionMayorG', 'H', '');
+INSERT INTO SYS_Seccion (SeccionID, Seccion, SubSeccion, Formulario, Modulo, Sesion) VALUES (33, 'TaxonomiA', 'Vegetacion Mayor morfotipos creciendo de manera gregaria', 'vegetacionMayorG', 'H', NULL);
 INSERT INTO SYS_Seccion (SeccionID, Seccion, SubSeccion, Formulario, Modulo, Sesion) VALUES (44, 'Suelo', 'Muestreo de densidad aparente', NULL, 'E', NULL);
 INSERT INTO SYS_Seccion (SeccionID, Seccion, SubSeccion, Formulario, Modulo, Sesion) VALUES (45, 'Suelo', 'Muestras del perfil', NULL, 'E', NULL);
 INSERT INTO SYS_Seccion (SeccionID, Seccion, SubSeccion, Formulario, Modulo, Sesion) VALUES (46, 'Sitio', 'Toma de fotografía hemisférica', NULL, 'F', NULL);

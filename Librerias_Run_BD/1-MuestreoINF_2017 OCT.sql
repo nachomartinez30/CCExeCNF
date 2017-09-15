@@ -60,7 +60,7 @@ CREATE TABLE UPM_MallaPuntos (
 );
 
 CREATE TABLE SITIOS_Sitio (
-    SitioID                    INTEGER       PRIMARY KEY auto_increment,
+    SitioID                    SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/,
     UPMID                      INTEGER       REFERENCES UPM_UPM (UPMID) ON DELETE CASCADE,
     Sitio                      INT,
     SenialGPS                  BOOLEAN,
@@ -105,7 +105,7 @@ CREATE TABLE SITIOS_Sitio (
 );
 
 CREATE TABLE SUELO_Suelo (
-    SueloID                       INTEGER       PRIMARY KEY auto_increment
+    SueloID                       SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                                 NOT NULL,
     SitioID                       INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     UsoSueloID                    INT,
@@ -132,7 +132,7 @@ CREATE TABLE SUELO_Suelo (
 );
 
 CREATE TABLE TAXONOMIA_Arbolado (
-    ArboladoID             INTEGER       PRIMARY KEY auto_increment,
+    ArboladoID             SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/,
     SitioID                INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Consecutivo            INTEGER,
     NoIndividuo            INT,
@@ -169,11 +169,11 @@ CREATE TABLE TAXONOMIA_Arbolado (
     VigorID                INT,
     NivelVigorID           INT,
     Modulo                 CHAR (1),
-    ClaveColecta           TEXT,
+    ClaveColecta           TEXT
 );
 
 CREATE TABLE TAXONOMIA_RepobladoVM (
-    RepobladoVMID            INTEGER       PRIMARY KEY auto_increment
+    RepobladoVMID            SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                            NOT NULL,
     SitioID                  INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Consecutivo              INT,
@@ -192,13 +192,13 @@ CREATE TABLE TAXONOMIA_RepobladoVM (
     PorcentajeCobertura200   INT,
     VigorID                  INT,
     Modulo                   CHAR (1),
-    ClaveColecta             TEXT,
+    ClaveColecta             TEXT
 );
 
 
 -- Table: ARBOLADO_DanioSeveridad
 CREATE TABLE ARBOLADO_DanioSeveridad (
-    DanioSeveridadID INTEGER PRIMARY KEY auto_increment
+    DanioSeveridadID SERIAL /*INTEGER*/ PRIMARY KEY /*auto_increment*/
                              NOT NULL,
     ArboladoID       INTEGER REFERENCES TAXONOMIA_Arbolado (ArboladoID) ON DELETE CASCADE,
     NumeroDanio      INT,
@@ -209,7 +209,7 @@ CREATE TABLE ARBOLADO_DanioSeveridad (
 
 -- Table: ARBOLADO_Submuestra
 CREATE TABLE ARBOLADO_Submuestra (
-    SubmuestraID      INTEGER  PRIMARY KEY auto_increment
+    SubmuestraID      SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                NOT NULL,
     SitioID           INT,
     ArboladoID        INTEGER  REFERENCES TAXONOMIA_Arbolado (ArboladoID) ON DELETE CASCADE,
@@ -224,7 +224,7 @@ CREATE TABLE ARBOLADO_Submuestra (
 
 -- Table: ARBOLADO_Troza
 CREATE TABLE ARBOLADO_Troza (
-    TrozaID      INTEGER  PRIMARY KEY auto_increment
+    TrozaID      SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                           NOT NULL,
     SubmuestraID INTEGER  REFERENCES ARBOLADO_Submuestra (SubmuestraID) ON DELETE CASCADE,
     NoTroza      INT,
@@ -235,7 +235,7 @@ CREATE TABLE ARBOLADO_Troza (
 
 -- Table: BRIGADA_Brigadistas
 CREATE TABLE BRIGADA_Brigadistas (
-    BrigadistaID    INTEGER       PRIMARY KEY auto_increment,
+    BrigadistaID    SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/,
     Nombre          TEXT,
     ApellidoPaterno TEXT,
     ApellidoMaterno TEXT,
@@ -247,7 +247,7 @@ CREATE TABLE BRIGADA_Brigadistas (
 
 -- Table: CARBONO_CoberturaDosel
 CREATE TABLE CARBONO_CoberturaDosel (
-    CoberturaDoselID INTEGER  PRIMARY KEY auto_increment
+    CoberturaDoselID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                               NOT NULL,
     SitioID          INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Transecto        INT,
@@ -267,7 +267,7 @@ CREATE TABLE CARBONO_CoberturaDosel (
 
 -- Table: CARBONO_CubiertaVegetal
 CREATE TABLE CARBONO_CubiertaVegetal (
-    CubiertaVegetalID INTEGER  PRIMARY KEY auto_increment
+    CubiertaVegetalID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                NOT NULL,
     SitioID           INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Transecto         INT,
@@ -280,7 +280,7 @@ CREATE TABLE CARBONO_CubiertaVegetal (
 
 -- Table: CARBONO_LongitudComponente
 CREATE TABLE CARBONO_LongitudComponente (
-    LongitudComponenteID INTEGER       PRIMARY KEY auto_increment
+    LongitudComponenteID SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                        NOT NULL,
     SitioID              INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Consecutivo          INTEGER,
@@ -304,13 +304,13 @@ CREATE TABLE CARBONO_LongitudComponente (
     Segmento10           INTEGER,
     Total                INTEGER,
     Modulo               CHAR (1),
-    ClaveColecta         TEXT,
+    ClaveColecta         TEXT
 );
 
 
 -- Table: CARBONO_MaterialLenioso100
 CREATE TABLE CARBONO_MaterialLenioso100 (
-    MaterialLenioso100ID INTEGER  PRIMARY KEY auto_increment
+    MaterialLenioso100ID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                   NOT NULL,
     SitioID              INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Transecto            INT,
@@ -324,7 +324,7 @@ CREATE TABLE CARBONO_MaterialLenioso100 (
 
 -- Table: CARBONO_MaterialLenioso1000
 CREATE TABLE CARBONO_MaterialLenioso1000 (
-    MaterialLenioso1000ID INTEGER  PRIMARY KEY auto_increment
+    MaterialLenioso1000ID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                    NOT NULL,
     SitioID               INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Transecto             INT,
@@ -337,7 +337,7 @@ CREATE TABLE CAT_ViaAccesibilidad (
     ViaAccesibilidadID INT           NOT NULL
                                      PRIMARY KEY,
     Via                TEXT,
-    Descripcion        TEXT,
+    Descripcion        TEXT
 );
 
 -- Table: CAT_AgenteDanio
@@ -346,14 +346,14 @@ CREATE TABLE CAT_AgenteDanio (
                                 NOT NULL,
     Clave         CHAR (5),
     Agente        TEXT,
-    Descripcion   TEXT,
+    Descripcion   TEXT
 );
 
 
 -- Table: CAT_CarbonoComponente
 CREATE TABLE CAT_CarbonoComponente (
     ComponenteID INT          PRIMARY KEY,
-    Componente   TEXT,
+    Componente   TEXT
 );
 
 
@@ -361,7 +361,7 @@ CREATE TABLE CAT_CarbonoComponente (
 CREATE TABLE CAT_ClaseEspecie (
     ClaseID INT           PRIMARY KEY
                           NOT NULL,
-    Nombre  TEXT,
+    Nombre  TEXT
 );
 
 
@@ -382,7 +382,7 @@ CREATE TABLE CAT_CondicionAccesibilidad (
     CondicionAccesibilidadID INT           PRIMARY KEY
                                            NOT NULL,
     Condicion                TEXT,
-    Descripcion              TEXT,
+    Descripcion              TEXT
 );
 
 
@@ -391,7 +391,7 @@ CREATE TABLE CAT_CondicionArbolado (
     CondicionID INT           PRIMARY KEY
                               NOT NULL,
     Clave       CHAR (2),
-    Descripcion TEXT,
+    Descripcion TEXT
 );
 
 
@@ -399,28 +399,28 @@ CREATE TABLE CAT_CondicionArbolado (
 CREATE TABLE CAT_CondicionMuertoPie (
     MuertoPieID INT           PRIMARY KEY ,
     Clave       CHAR (1),
-    Descripcion TEXT,
+    Descripcion TEXT
 );
 
 
 -- Table: CAT_CondicionVM
 CREATE TABLE CAT_CondicionVM (
     CondicionVMID INTEGER      PRIMARY KEY,
-    Descripcion   TEXT,
+    Descripcion   TEXT
 );
 
 
 -- Table: CAT_DensidadColonia
 CREATE TABLE CAT_DensidadColonia (
     DensidadColoniaID INTEGER       PRIMARY KEY,
-    Descripcion       TEXT,
+    Descripcion       TEXT
 );
 
 
 -- Table: CAT_DensidadFollaje
 CREATE TABLE CAT_DensidadFollaje (
     DensidadFollajeID INTEGER       PRIMARY KEY,
-    Descripcion       TEXT,
+    Descripcion       TEXT
 );
 
 
@@ -447,7 +447,7 @@ CREATE TABLE CAT_ExposicionLuzCopa (
     ExposicionLuzID INT           PRIMARY KEY
                                   NOT NULL,
     Codigo          CHAR (1),
-    Descripcion     TEXT,
+    Descripcion     TEXT
 );
 
 
@@ -465,7 +465,7 @@ CREATE TABLE CAT_FaseSucecional (
     FaseSucecionalID INT          PRIMARY KEY
                                   NOT NULL,
     Descripcion      TEXT,
-    Clave            TEXT,
+    Clave            TEXT
 );
 
 
@@ -483,7 +483,7 @@ CREATE TABLE CAT_GradoPutrefaccionArbolado (
     GradoPutrefaccionID INT           PRIMARY KEY,
     Clave               CHAR (1),
     Tipo                TEXT,
-    Descripcion         TEXT,
+    Descripcion         TEXT
 );
 
 
@@ -500,7 +500,7 @@ CREATE TABLE CAT_MedioTransporte (
     MedioTransporteID SMALLINT       PRIMARY KEY
                                      NOT NULL,
     Medio             TEXT,
-    Descripcion       TEXT,
+    Descripcion       TEXT
 );
 
 
@@ -508,7 +508,7 @@ CREATE TABLE CAT_MedioTransporte (
 CREATE TABLE CAT_Morfotipos (
     MorfotiposID INT           PRIMARY KEY
                                NOT NULL,
-    Descripcion  TEXT,
+    Descripcion  TEXT
 );
 
 
@@ -527,7 +527,7 @@ CREATE TABLE CAT_NivelVigor (
     NivelVigorID INT          PRIMARY KEY
                               NOT NULL,
     Clave        TEXT,
-    Descripcion  TEXT,
+    Descripcion  TEXT
 );
 
 
@@ -536,7 +536,7 @@ CREATE TABLE CAT_PorcentajeArbolado (
     PorcentajeArboladoID INT          PRIMARY KEY
                                       NOT NULL,
     Clave                CHAR (3),
-    Descripcion          TEXT,
+    Descripcion          TEXT
 );
 
 
@@ -545,28 +545,28 @@ CREATE TABLE CAT_PosicionCopa (
     PosicionCopaID INT           PRIMARY KEY
                                  NOT NULL,
     PosicionCopa   TEXT,
-    Descripcion    TEXT,
+    Descripcion    TEXT
 );
 
 
 -- Table: CAT_PresenciaEpifita
 CREATE TABLE CAT_PresenciaEpifita (
     PresenciaEpifitaID INT           PRIMARY KEY,
-    Descripcion        TEXT,
+    Descripcion        TEXT
 );
 
 
 -- Table: CAT_ProfundidadMuestras
 CREATE TABLE CAT_ProfundidadMuestras (
     ProfundidadMuestraID INTEGER      PRIMARY KEY,
-    Descripcion          TEXT,
+    Descripcion          TEXT
 );
 
 
 -- Table: CAT_ProfundidadMuestreo
 CREATE TABLE CAT_ProfundidadMuestreo (
     ProfundidadMuestreoID INT          PRIMARY KEY,
-    Descripcion           TEXT,
+    Descripcion           TEXT
 );
 
 
@@ -575,28 +575,28 @@ CREATE TABLE CAT_Region (
     RegionID    INT           PRIMARY KEY
                               NOT NULL,
     Descripcion TEXT,
-    Anio        TEXT,
+    Anio        TEXT
 );
 
 
 -- Table: CAT_SeccionesTaxonomicas
 CREATE TABLE CAT_SeccionesTaxonomicas (
     SeccionTaxonomicaID INTEGER       PRIMARY KEY,
-    Seccion             TEXT,
+    Seccion             TEXT
 );
 
 
 -- Table: CAT_SeveridadZA
 CREATE TABLE CAT_SeveridadZA (
-    SeveridadID INTEGER       PRIMARY KEY auto_increment,
-    Descripcion TEXT,
+    SeveridadID SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/,
+    Descripcion TEXT
 );
 
 
 -- Table: CAT_TipoColocacion
 CREATE TABLE CAT_TipoColocacion (
     TipoColocacionID INT           PRIMARY KEY,
-    Descripcion      TEXT,
+    Descripcion      TEXT
 );
 
 
@@ -604,14 +604,14 @@ CREATE TABLE CAT_TipoColocacion (
 CREATE TABLE CAT_TipoComponente (
     ComponenteID INT          PRIMARY KEY
                               NOT NULL,
-    Componente   TEXT,
+    Componente   TEXT
 );
 
 
 -- Table: CAT_TipoEpifita
 CREATE TABLE CAT_TipoEpifita (
     TipoEpifitaID INT          PRIMARY KEY,
-    Nombre        TEXT,
+    Nombre        TEXT
 );
 
 
@@ -620,7 +620,7 @@ CREATE TABLE CAT_TipoEspesorSuelo (
     ProfundidadSueloID INT          PRIMARY KEY
                                     NOT NULL,
     Espesor            TEXT,
-    Categoria          TEXT,
+    Categoria          TEXT
 );
 
 
@@ -629,7 +629,7 @@ CREATE TABLE CAT_TipoExposicion (
     ExposicionID INT          PRIMARY KEY
                               NOT NULL,
     Clave        CHAR (2),
-    Descripcion  TEXT,
+    Descripcion  TEXT
 );
 
 
@@ -638,14 +638,14 @@ CREATE TABLE CAT_TipoFisiografia (
     FisiografiaID   INT           PRIMARY KEY
                                   NOT NULL,
     TipoFisiografia TEXT,
-    Descripcion     TEXT,
+    Descripcion     TEXT
 );
 
 
 -- Table: CAT_TipoFormaCrecimiento
 CREATE TABLE CAT_TipoFormaCrecimiento (
     FormaCrecimientoID INTEGER      PRIMARY KEY,
-    Descripcion        TEXT,
+    Descripcion        TEXT
 );
 
 
@@ -653,14 +653,14 @@ CREATE TABLE CAT_TipoFormaCrecimiento (
 CREATE TABLE CAT_TipoFormaFuste (
     FormaFusteID INT          PRIMARY KEY
                               NOT NULL,
-    Descripcion  TEXT,
+    Descripcion  TEXT
 );
 
 
 -- Table: CAT_TipoFormaGeometrica
 CREATE TABLE CAT_TipoFormaGeometrica (
     FormaGeometricaID INTEGER       PRIMARY KEY,
-    Descripcion       TEXT,
+    Descripcion       TEXT
 );
 
 
@@ -668,7 +668,7 @@ CREATE TABLE CAT_TipoFormaGeometrica (
 CREATE TABLE CAT_TipoFormaVidaArbolado (
     FormaVidaID INT           PRIMARY KEY
                               NOT NULL,
-    Descripcion TEXT,
+    Descripcion TEXT
 );
 
 
@@ -676,14 +676,14 @@ CREATE TABLE CAT_TipoFormaVidaArbolado (
 CREATE TABLE CAT_TipoFormaVidaRepobladoVM (
     FormaVidaRepobladoVMID INT           PRIMARY KEY
                                          NOT NULL,
-    Descripcion            TEXT,
+    Descripcion            TEXT
 );
 
 
 -- Table: CAT_TipoFormaVidaZA
 CREATE TABLE CAT_TipoFormaVidaZA (
     FormaVidaZAID INTEGER       PRIMARY KEY,
-    Morfotipo     TEXT,
+    Morfotipo     TEXT
 );
 
 
@@ -692,7 +692,7 @@ CREATE TABLE CAT_TipoHojarasca (
     TipoHojarascaID INT           PRIMARY KEY
                                   NOT NULL,
     Clave           TEXT,
-    Descripcion     TEXT,
+    Descripcion     TEXT
 );
 
 
@@ -702,7 +702,7 @@ CREATE TABLE CAT_TipoInaccesibilidad (
                                         NOT NULL,
     Clave                 TEXT,
     Tipo                  TEXT,
-    Descripcion           TEXT,
+    Descripcion           TEXT
 );
 
 
@@ -711,7 +711,7 @@ CREATE TABLE CAT_TipoLecturaTierra (
     LecturaTierraID INT          PRIMARY KEY
                                  NOT NULL,
     Clave           CHAR (1),
-    Descripcion     TEXT,
+    Descripcion     TEXT
 );
 
 
@@ -719,7 +719,7 @@ CREATE TABLE CAT_TipoLecturaTierra (
 CREATE TABLE CAT_TipoTenencia (
     TipoTenenciaID INT          PRIMARY KEY
                                 NOT NULL,
-    Descripcion    TEXT,
+    Descripcion    TEXT
 );
 
 
@@ -728,7 +728,7 @@ CREATE TABLE CAT_TipoTocon (
     TipoToconID INT           PRIMARY KEY
                               NOT NULL,
     Clave       CHAR (1),
-    Descripcion TEXT,
+    Descripcion TEXT
 );
 
 
@@ -736,7 +736,7 @@ CREATE TABLE CAT_TipoTocon (
 CREATE TABLE CAT_TipoTroza (
     TipoTrozaID INT           NOT NULL,
     Clave       CHAR (2),
-    Descripcion TEXT,
+    Descripcion TEXT
 );
 
 
@@ -745,7 +745,7 @@ CREATE TABLE CAT_TipoUPM (
     TipoUPMID   INT           PRIMARY KEY
                               NOT NULL,
     TipoUPM     TEXT,
-    Descripcion TEXT,
+    Descripcion TEXT
 );
 
 
@@ -753,14 +753,14 @@ CREATE TABLE CAT_TipoUPM (
 CREATE TABLE CAT_TipoVigorArbolado (
     VigorID     INT           PRIMARY KEY
                               NOT NULL,
-    Descripcion TEXT,
+    Descripcion TEXT
 );
 
 
 -- Table: CAT_TipoVigorSotobosqueRepoblado
 CREATE TABLE CAT_TipoVigorSotobosqueRepoblado (
     VigorID     INTEGER       PRIMARY KEY,
-    Descripcion TEXT,
+    Descripcion TEXT
 );
 
 
@@ -776,7 +776,7 @@ CREATE TABLE CAT_TransporteAccesibilidad (
 CREATE TABLE CAT_UsoSuelo (
     UsoSueloID  INT           PRIMARY KEY
                               NOT NULL,
-    Descripcion TEXT,
+    Descripcion TEXT
 );
 
 
@@ -786,7 +786,7 @@ CREATE TABLE CAT_UsoSuelo (
 
 -- Table: PC_Accesibilidad
 CREATE TABLE PC_Accesibilidad (
-    AccesibilidadID          INTEGER  PRIMARY KEY auto_increment
+    AccesibilidadID          SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                       NOT NULL,
     UPMID                    INTEGER  REFERENCES UPM_UPM (UPMID) ON DELETE CASCADE,
     MedioTransporteID        INT,
@@ -799,7 +799,7 @@ CREATE TABLE PC_Accesibilidad (
 
 -- Table: PC_PuntoControl
 CREATE TABLE PC_PuntoControl (
-    PuntoControlID   INTEGER       PRIMARY KEY auto_increment
+    PuntoControlID   SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                    NOT NULL,
     UPMID            INT           NOT NULL
                                    REFERENCES UPM_UPM (UPMID) ON DELETE CASCADE,
@@ -821,7 +821,7 @@ CREATE TABLE PC_PuntoControl (
 
 -- Table: REPOBLADO_AgenteDanio
 CREATE TABLE REPOBLADO_AgenteDanio (
-    RepobladoDanioID INTEGER PRIMARY KEY auto_increment,
+    RepobladoDanioID SERIAL /*INTEGER*/ PRIMARY KEY /*auto_increment*/,
     RepobladoVMID    INTEGER REFERENCES TAXONOMIA_RepobladoVM (RepobladoVMID) ON DELETE CASCADE,
     NumeroDanio      INT,
     AgenteDanioID    INT,
@@ -840,7 +840,7 @@ CREATE TABLE SEG_EstatusCaptura (
 
 -- Table: SITIOS_CoberturaSuelo
 CREATE TABLE SITIOS_CoberturaSuelo (
-    CoberturaID  INTEGER  PRIMARY KEY auto_increment
+    CoberturaID  SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                           NOT NULL,
     SitioID      INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Gramineas    INT,
@@ -859,7 +859,7 @@ CREATE TABLE SITIOS_CoberturaSuelo (
 
 -- Table: SITIOS_FotografiaHemisferica
 CREATE TABLE SITIOS_FotografiaHemisferica (
-    FotografiaHemisfericaID INTEGER  PRIMARY KEY auto_increment
+    FotografiaHemisfericaID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                      NOT NULL,
     SitioID                 INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     CoberturaArborea        BOOLEAN,
@@ -872,17 +872,17 @@ CREATE TABLE SITIOS_FotografiaHemisferica (
 
 -- Table: SITIOS_Observaciones
 CREATE TABLE SITIOS_Observaciones (
-    ObservacionesID INTEGER       PRIMARY KEY auto_increment
+    ObservacionesID SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                   NOT NULL,
     SitioID         INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     FormatoID       INT,
-    Observaciones   TEXT,
+    Observaciones   TEXT
 );
 
 
 -- Table: SITIOS_ParametrosFisicoQuimicos
 CREATE TABLE SITIOS_ParametrosFisicoQuimicos (
-    ParametrosFQID         INTEGER       PRIMARY KEY auto_increment
+    ParametrosFQID         SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                          NOT NULL,
     SitioID                INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     TipoAgua               BOOLEAN,
@@ -903,7 +903,7 @@ CREATE TABLE SITIOS_ParametrosFisicoQuimicos (
 
 -- Table: SITIOS_Transponder
 CREATE TABLE SITIOS_Transponder (
-    TransponderID    INTEGER       PRIMARY KEY auto_increment
+    TransponderID    SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                    NOT NULL,
     SitioID          INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     TipoColocacionID INT,
@@ -915,15 +915,15 @@ CREATE TABLE SITIOS_Transponder (
 
 -- Table: SUBMUESTRA_Observaciones
 CREATE TABLE SUBMUESTRA_Observaciones (
-    SubmuestraObservacionesID INTEGER       PRIMARY KEY auto_increment,
+    SubmuestraObservacionesID SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/,
     SitioID                   INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
-    Observaciones             TEXT,
+    Observaciones             TEXT
 );
 
 
 -- Table: SUELO_Canalillo
 CREATE TABLE SUELO_Canalillo (
-    CanalilloID INTEGER  PRIMARY KEY auto_increment
+    CanalilloID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                          NOT NULL,
     SitioID     INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Numero      INT,
@@ -935,7 +935,7 @@ CREATE TABLE SUELO_Canalillo (
 
 -- Table: SUELO_Carcava
 CREATE TABLE SUELO_Carcava (
-    CarcavaID   INTEGER  PRIMARY KEY auto_increment
+    CarcavaID   SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                          NOT NULL,
     SitioID     INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Numero      INT,
@@ -947,7 +947,7 @@ CREATE TABLE SUELO_Carcava (
 
 -- Table: SUELO_CoberturaSuelo
 CREATE TABLE SUELO_CoberturaSuelo (
-    CoberturaSueloID INTEGER  PRIMARY KEY auto_increment
+    CoberturaSueloID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                               NOT NULL,
     SitioID          INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Transecto        INT,
@@ -958,7 +958,7 @@ CREATE TABLE SUELO_CoberturaSuelo (
 
 -- Table: SUELO_Costras
 CREATE TABLE SUELO_Costras (
-    CostrasID INTEGER  PRIMARY KEY auto_increment
+    CostrasID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                        NOT NULL,
     SitioID   INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Numero    INT,
@@ -969,7 +969,7 @@ CREATE TABLE SUELO_Costras (
 
 -- Table: SUELO_DeformacionViento
 CREATE TABLE SUELO_DeformacionViento (
-    DeformacionVientoID INTEGER  PRIMARY KEY auto_increment
+    DeformacionVientoID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                  NOT NULL,
     SitioID             INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Medicion            INT,
@@ -984,7 +984,7 @@ CREATE TABLE SUELO_DeformacionViento (
 
 -- Table: SUELO_DensidadAparente
 CREATE TABLE SUELO_DensidadAparente (
-    DensidadAparenteID INTEGER       PRIMARY KEY auto_increment
+    DensidadAparenteID SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                      NOT NULL,
     SitioID            INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     ProfundidadReal    REAL,
@@ -999,7 +999,7 @@ CREATE TABLE SUELO_DensidadAparente (
 
 -- Table: SUELO_ErosionHidricaCanalillo
 CREATE TABLE SUELO_ErosionHidricaCanalillo (
-    ErosionCanalilloID INTEGER  PRIMARY KEY auto_increment
+    ErosionCanalilloID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                 NOT NULL,
     SitioID            INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Medicion           INT,
@@ -1013,7 +1013,7 @@ CREATE TABLE SUELO_ErosionHidricaCanalillo (
 
 -- Table: SUELO_ErosionHidricaCarcava
 CREATE TABLE SUELO_ErosionHidricaCarcava (
-    ErosionCarcavaID INTEGER  PRIMARY KEY auto_increment
+    ErosionCarcavaID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                               NOT NULL,
     SitioID          INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Medicion         INT,
@@ -1027,7 +1027,7 @@ CREATE TABLE SUELO_ErosionHidricaCarcava (
 
 -- Table: SUELO_ErosionLaminar
 CREATE TABLE SUELO_ErosionLaminar (
-    ErosionLaminarID INTEGER  PRIMARY KEY auto_increment
+    ErosionLaminarID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                               NOT NULL,
     SitioID          INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Numero           INT,
@@ -1039,7 +1039,7 @@ CREATE TABLE SUELO_ErosionLaminar (
 
 -- Table: SUELO_EvidenciaErosion
 CREATE TABLE SUELO_EvidenciaErosion (
-    EvidenciaErosionID INTEGER PRIMARY KEY auto_increment,
+    EvidenciaErosionID SERIAL /*INTEGER*/ PRIMARY KEY /*auto_increment*/,
     CoberturaSueloID   INTEGER REFERENCES SUELO_CoberturaSuelo (CoberturaSueloID) ON DELETE CASCADE,
     Punto              INT,
     Dosel              INT,
@@ -1049,7 +1049,7 @@ CREATE TABLE SUELO_EvidenciaErosion (
 
 -- Table: SUELO_Hojarasca
 CREATE TABLE SUELO_Hojarasca (
-    HojarascaID     INTEGER       PRIMARY KEY auto_increment
+    HojarascaID     SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                   NOT NULL,
     SitioID         INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Punto           INT,
@@ -1069,7 +1069,7 @@ CREATE TABLE SUELO_Hojarasca (
 
 -- Table: SUELO_LongitudCanalillo
 CREATE TABLE SUELO_LongitudCanalillo (
-    LongitudCanalilloID INTEGER  PRIMARY KEY auto_increment
+    LongitudCanalilloID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                  NOT NULL,
     SitioID             INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     CampoLongitud       INT,
@@ -1080,7 +1080,7 @@ CREATE TABLE SUELO_LongitudCanalillo (
 
 -- Table: SUELO_LongitudCarcava
 CREATE TABLE SUELO_LongitudCarcava (
-    LongitudCarcavaID INTEGER  PRIMARY KEY auto_increment
+    LongitudCarcavaID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                NOT NULL,
     SitioID           INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     CampoLongitud     INT,
@@ -1091,7 +1091,7 @@ CREATE TABLE SUELO_LongitudCarcava (
 
 -- Table: SUELO_LongitudMonticulo
 CREATE TABLE SUELO_LongitudMonticulo (
-    LongitudMonticuloID INTEGER  PRIMARY KEY auto_increment
+    LongitudMonticuloID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                  NOT NULL,
     SitioID             INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     CampoLongitud       INT,
@@ -1102,7 +1102,7 @@ CREATE TABLE SUELO_LongitudMonticulo (
 
 -- Table: SUELO_MedicionCanalillos
 CREATE TABLE SUELO_MedicionCanalillos (
-    MedicionCanalillosID INTEGER  PRIMARY KEY auto_increment
+    MedicionCanalillosID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                   NOT NULL,
     SitioID              INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     NumeroCanalillos     INT,
@@ -1115,7 +1115,7 @@ CREATE TABLE SUELO_MedicionCanalillos (
 
 -- Table: SUELO_MedicionCarcavas
 CREATE TABLE SUELO_MedicionCarcavas (
-    MedicionCarcavasID  INTEGER  PRIMARY KEY auto_increment
+    MedicionCarcavasID  SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                  NOT NULL,
     SitioID             INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     NumeroCarcavas      INT,
@@ -1129,7 +1129,7 @@ CREATE TABLE SUELO_MedicionCarcavas (
 
 -- Table: SUELO_MedicionDunas
 CREATE TABLE SUELO_MedicionDunas (
-    MedicionDunas  INTEGER  PRIMARY KEY auto_increment
+    MedicionDunas  SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                             NOT NULL,
     SitioID        INTEGER  REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     NumeroDunas    INT,
@@ -1143,7 +1143,7 @@ CREATE TABLE SUELO_MedicionDunas (
 
 -- Table: SUELO_Muestras
 CREATE TABLE SUELO_Muestras (
-    MuestrasID    INTEGER      PRIMARY KEY auto_increment,
+    MuestrasID    SERIAL /*INTEGER*/      PRIMARY KEY /*auto_increment*/,
     SitioID       INTEGER      REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     ProfundidadID INTEGER,
     PesoMuestra   DECIMAL,
@@ -1153,13 +1153,13 @@ CREATE TABLE SUELO_Muestras (
     Lectura3      DECIMAL,
     Lectura4      DECIMAL,
     Promedio      DECIMAL,
-    ClaveColecta  TEXT,
+    ClaveColecta  TEXT
 );
 
 
 -- Table: SUELO_MuestrasPerfil
 CREATE TABLE SUELO_MuestrasPerfil (
-    MuestrasPerfilID INTEGER       PRIMARY KEY auto_increment,
+    MuestrasPerfilID SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/,
     SitioID          INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     GradosLatitud    INTEGER,
     MinutosLatitud   INTEGER,
@@ -1171,13 +1171,13 @@ CREATE TABLE SUELO_MuestrasPerfil (
     DiametroInterno  DECIMAL,
     DiametroExterno  DECIMAL,
     Altura           DECIMAL,
-    Observaciones    TEXT,
+    Observaciones    TEXT
 );
 
 
 -- Table: SUELO_MuestrasPerfil_2015
 CREATE TABLE SUELO_MuestrasPerfil_2015 (
-    MuestrasPerfilID           INTEGER       PRIMARY KEY auto_increment
+    MuestrasPerfilID           SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                              NOT NULL,
     SitioID                    INT           REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     ProfundidadMuestra_0_5_1   REAL,
@@ -1196,7 +1196,7 @@ CREATE TABLE SUELO_MuestrasPerfil_2015 (
 
 -- Table: SUELO_PavimentoErosion
 CREATE TABLE SUELO_PavimentoErosion (
-    PavimentoErosionID INTEGER  PRIMARY KEY auto_increment
+    PavimentoErosionID SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                                 NOT NULL,
     SitioID            INT      REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Numero             INT,
@@ -1207,7 +1207,7 @@ CREATE TABLE SUELO_PavimentoErosion (
 
 -- Table: SUELO_Pedestal
 CREATE TABLE SUELO_Pedestal (
-    PedestalID INTEGER   PRIMARY KEY auto_increment
+    PedestalID SERIAL /*INTEGER*/   PRIMARY KEY /*auto_increment*/
                          NOT NULL,
     SitioID    INTEGER   REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Numero     INT,
@@ -1218,7 +1218,7 @@ CREATE TABLE SUELO_Pedestal (
 
 -- Table: SUELO_Profundidad
 CREATE TABLE SUELO_Profundidad (
-    ProfundidadSueloID INTEGER       PRIMARY KEY auto_increment
+    ProfundidadSueloID SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                      NOT NULL,
     SitioID            INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Punto              INT,
@@ -1240,7 +1240,7 @@ CREATE TABLE SUELO_Profundidad (
 
 -- Table: SUELO_VarillaErosion
 CREATE TABLE SUELO_VarillaErosion (
-    VarillaID   INTEGER  PRIMARY KEY auto_increment
+    VarillaID   SERIAL /*INTEGER*/  PRIMARY KEY /*auto_increment*/
                          NOT NULL,
     SitioID     INT      REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     NoVarilla   INT,
@@ -1273,7 +1273,7 @@ CREATE TABLE SYS_Seccion (
 
 -- Table: SYS_SecuenciaCaptura
 CREATE TABLE SYS_SecuenciaCaptura (
-    SecuenciaCapturaID INTEGER PRIMARY KEY auto_increment,
+    SecuenciaCapturaID SERIAL /*INTEGER*/ PRIMARY KEY /*auto_increment*/,
     SecuenciaID        INTEGER,
     UPMID              INTEGER REFERENCES UPM_UPM (UPMID) ON DELETE CASCADE,
     Sitio              INT,
@@ -1284,7 +1284,7 @@ CREATE TABLE SYS_SecuenciaCaptura (
 
 -- Table: SYS_UPM_Revision
 CREATE TABLE SYS_UPM_Revision (
-    RevisionID  INTEGER PRIMARY KEY auto_increment,
+    RevisionID  SERIAL /*INTEGER*/ PRIMARY KEY /*auto_increment*/,
     UPMID       INTEGER REFERENCES UPM_UPM (UPMID) ON DELETE CASCADE,
     SitioID     INT,
     Sitio       INT,
@@ -1295,7 +1295,7 @@ CREATE TABLE SYS_UPM_Revision (
 
 -- Table: TAXONOMIA_ColectaBotanica
 CREATE TABLE TAXONOMIA_ColectaBotanica (
-    ColectaBotanicaID INTEGER       PRIMARY KEY auto_increment
+    ColectaBotanicaID SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                     NOT NULL,
     UPMID             INTEGER       REFERENCES UPM_UPM (UPMID) ON DELETE CASCADE,
     FamiliaID         INTEGER,
@@ -1333,7 +1333,7 @@ CREATE TABLE TAXONOMIA_ColectaBotanica (
 
 -- Table: TAXONOMIA_Repoblado
 CREATE TABLE TAXONOMIA_Repoblado (
-    RepobladoID      INTEGER      PRIMARY KEY auto_increment
+    RepobladoID      SERIAL /*INTEGER*/      PRIMARY KEY /*auto_increment*/
                                   NOT NULL,
     SitioID          INTEGER      REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Consecutivo      INTEGER,
@@ -1353,7 +1353,7 @@ CREATE TABLE TAXONOMIA_Repoblado (
     DanioID          INT,
     PorcentajeDanio  INT,
     Modulo           CHAR (1),
-    ClaveColecta     TEXT,
+    ClaveColecta     TEXT
 );
 
 
@@ -1362,7 +1362,7 @@ CREATE TABLE TAXONOMIA_Repoblado (
 
 -- Table: TAXONOMIA_SotoBosque
 CREATE TABLE TAXONOMIA_SotoBosque (
-    SotoBosqueID     INTEGER       PRIMARY KEY auto_increment
+    SotoBosqueID     SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                    NOT NULL,
     SitioID          INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Consecutivo      INTEGER,
@@ -1382,13 +1382,13 @@ CREATE TABLE TAXONOMIA_SotoBosque (
     DanioID          INT,
     PorcentajeDanio  INT,
     Modulo           CHAR (1),
-    ClaveColecta     TEXT,
+    ClaveColecta     TEXT
 );
 
 
 -- Table: TAXONOMIA_VegetacionMayorGregarios
 CREATE TABLE TAXONOMIA_VegetacionMayorGregarios (
-    VegetacionMayorID      INTEGER      PRIMARY KEY auto_increment
+    VegetacionMayorID      SERIAL /*INTEGER*/      PRIMARY KEY /*auto_increment*/
                                         NOT NULL,
     SitioID                INTEGER      REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Consecutivo            INT,
@@ -1410,13 +1410,13 @@ CREATE TABLE TAXONOMIA_VegetacionMayorGregarios (
     DiametroCoberturaMenor REAL,
     VigorID                INT,
     Modulo                 CHAR (1),
-    ClaveColecta           TEXT,
+    ClaveColecta           TEXT
 );
 
 
 -- Table: TAXONOMIA_VegetacionMayorIndividual
 CREATE TABLE TAXONOMIA_VegetacionMayorIndividual (
-    VegetacionMayorID      INTEGER       PRIMARY KEY auto_increment
+    VegetacionMayorID      SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                          NOT NULL,
     SitioID                INTEGER       REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Consecutivo            INTEGER,
@@ -1437,13 +1437,13 @@ CREATE TABLE TAXONOMIA_VegetacionMayorIndividual (
     DiametroCoberturaMenor REAL,
     VigorID                INT,
     Modulo                 CHAR (1),
-    ClaveColecta           TEXT,
+    ClaveColecta           TEXT
 );
 
 
 -- Table: TAXONOMIA_VegetacionMenor
 CREATE TABLE TAXONOMIA_VegetacionMenor (
-    VegetacionMenorID   INTEGER      PRIMARY KEY auto_increment
+    VegetacionMenorID   SERIAL /*INTEGER*/      PRIMARY KEY /*auto_increment*/
                                      NOT NULL,
     SitioID             INTEGER      REFERENCES SITIOS_Sitio (SitioID) ON DELETE CASCADE,
     Consecutivo         INT,
@@ -1466,13 +1466,13 @@ CREATE TABLE TAXONOMIA_VegetacionMenor (
     PorcentajeCobertura INT,
     VigorID             INT,
     Modulo              CHAR (1),
-    ClaveColecta        TEXT,
+    ClaveColecta        TEXT
 );
 
 
 -- Table: UPM_Brigada
 CREATE TABLE UPM_Brigada (
-    BrigadaID    INTEGER PRIMARY KEY auto_increment
+    BrigadaID    SERIAL /*INTEGER*/ PRIMARY KEY /*auto_increment*/
                          NOT NULL,
     UPMID        INT     REFERENCES UPM_UPM (UPMID) ON DELETE CASCADE,
     BrigadistaID INT,
@@ -1483,7 +1483,7 @@ CREATE TABLE UPM_Brigada (
 
 -- Table: UPM_Contacto
 CREATE TABLE UPM_Contacto (
-    ContactoID      INTEGER       PRIMARY KEY auto_increment
+    ContactoID      SERIAL /*INTEGER*/       PRIMARY KEY /*auto_increment*/
                                   NOT NULL,
     UPMID           INT           REFERENCES UPM_UPM (UPMID) ON DELETE CASCADE,
     TipoContacto    BOOLEAN,
@@ -1503,13 +1503,13 @@ CREATE TABLE UPM_Contacto (
 
 -- Table: UPM_Epifita
 CREATE TABLE UPM_Epifita (
-    EpifitaID          INTEGER     PRIMARY KEY auto_increment
+    EpifitaID          SERIAL /*INTEGER*/     PRIMARY KEY /*auto_increment*/
                                    NOT NULL,
     UPMID              INT         REFERENCES UPM_UPM (UPMID) ON DELETE CASCADE,
     ClaseTipoID        INT,
     PresenciaTroncosID INT,
     PresenciaRamasID   INT,
-    Modulo             TEXT,
+    Modulo             TEXT
 );
 
 
@@ -1519,7 +1519,7 @@ CREATE TABLE UPM_Epifita (
 
 -- Table: VEGETACIONMAYORG_DanioSeveridad
 CREATE TABLE VEGETACIONMAYORG_DanioSeveridad (
-    DanioSeveridadID  INTEGER PRIMARY KEY auto_increment,
+    DanioSeveridadID  SERIAL /*INTEGER*/ PRIMARY KEY /*auto_increment*/,
     VegetacionMayorID INTEGER REFERENCES TAXONOMIA_VegetacionMayorGregarios (VegetacionMayorID) ON DELETE CASCADE,
     NumeroDanio       INT,
     AgenteDanioID     INT,
@@ -1529,7 +1529,7 @@ CREATE TABLE VEGETACIONMAYORG_DanioSeveridad (
 
 -- Table: VEGETACIONMAYORI_DanioSeveridad
 CREATE TABLE VEGETACIONMAYORI_DanioSeveridad (
-    DanioSeveridadID  INTEGER PRIMARY KEY auto_increment,
+    DanioSeveridadID  SERIAL /*INTEGER*/ PRIMARY KEY /*auto_increment*/,
     VegetacionMayorID INTEGER REFERENCES TAXONOMIA_VegetacionMayorIndividual (VegetacionMayorID) ON DELETE CASCADE,
     NumeroDanio       INT,
     AgenteDanioID     INT,
@@ -1539,7 +1539,7 @@ CREATE TABLE VEGETACIONMAYORI_DanioSeveridad (
 
 -- Table: VEGETACIONMENOR_DanioSeveridad
 CREATE TABLE VEGETACIONMENOR_DanioSeveridad (
-    DanioSeveridadVMID INTEGER PRIMARY KEY auto_increment,
+    DanioSeveridadVMID SERIAL /*INTEGER*/ PRIMARY KEY /*auto_increment*/,
     VegetacionMenorID  INTEGER REFERENCES TAXONOMIA_VegetacionMenor (VegetacionMenorID) ON DELETE CASCADE,
     NumeroDanio        INT,
     AgenteDanioID      INT,
@@ -2220,7 +2220,7 @@ CREATE VIEW VW_Arbolado_A AS
            esp.Nombre AS Especie,
            inf.Nombre AS Infraespecie,
            arb.NombreComun,
-           CASE arb.EsSubmuestra WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END EsSubmuestra,
+           CASE arb.EsSubmuestra WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END EsSubmuestra,
            fv.Descripcion AS FormaVida,
            ff.Descripcion AS FormaFuste,
            con.Descripcion AS Condicion,
@@ -2309,8 +2309,8 @@ CREATE VIEW VW_Arbolado_D AS
            esp.Nombre AS Especie,
            inf.Nombre AS Infraespecie,
            arb.NombreComun,
-           CASE arb.EsColecta WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END EsColecta,
-           CASE arb.EsSubmuestra WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END EsSubmuestra,
+           CASE arb.EsColecta WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END EsColecta,
+           CASE arb.EsSubmuestra WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END EsSubmuestra,
            fv.Descripcion AS FormaVida,
            ff.Descripcion AS FormaFuste,
            con.Descripcion AS Condicion,
@@ -2411,8 +2411,8 @@ CREATE VIEW VW_Arbolado_G AS
            esp.Nombre AS Especie,
            inf.Nombre AS Infraespecie,
            arb.NombreComun,
-           CASE arb.EsColecta WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END EsColecta,
-           CASE arb.EsSubmuestra WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END EsSubmuestra,
+           CASE arb.EsColecta WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END EsColecta,
+           CASE arb.EsSubmuestra WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END EsSubmuestra,
            fv.Descripcion AS FormaVida,
            ff.Descripcion AS FormaFuste,
            con.Descripcion AS Condicion,
@@ -2526,25 +2526,25 @@ CREATE VIEW VW_ColectaBotanica AS
            cb.Sitio,
            cst.Seccion,
            cb.Consecutivo,
-           CASE cb.ContraFuertes WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END ContraFuertes,
-           CASE cb.Exudado WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END Exudado,
+           CASE cb.ContraFuertes WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END ContraFuertes,
+           CASE cb.Exudado WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END Exudado,
            cb.IndicarExudado,
-           CASE cb.Color WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END Color,
+           CASE cb.Color WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END Color,
            cb.IndicarColor,
-           CASE cb.CambioColor WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END CambioColor,
-           CASE cb.AceitesVolatiles WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END AceitesVolatiles,
-           CASE cb.ColorFlor WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END ColorFlor,
+           CASE cb.CambioColor WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END CambioColor,
+           CASE cb.AceitesVolatiles WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END AceitesVolatiles,
+           CASE cb.ColorFlor WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END ColorFlor,
            cb.IndicarColorFlor,
-           CASE cb.HojasTejidoVivo WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END HojasTejidoVivo,
-           CASE cb.FotoFlor WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END FotoFlor,
-           CASE cb.FotoFruto WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END FotoFruto,
-           CASE cb.FotoHojasArriba WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END FotoHojasArriba,
-           CASE cb.FotoHojasAbajo WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END FotoHojasAbajo,
-           CASE cb.FotoArbolCompleto WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END FotoArbolCompleto,
-           CASE cb.FotoCorteza WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END FotoCorteza,
-           CASE cb.VirutaIncluida WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END VirutaIncluida,
-           CASE cb.CortezaIncluida WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END CortezaIncluida,
-           CASE cb.MaderaIncluida WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END MaderaIncluida,
+           CASE cb.HojasTejidoVivo WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END HojasTejidoVivo,
+           CASE cb.FotoFlor WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END FotoFlor,
+           CASE cb.FotoFruto WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END FotoFruto,
+           CASE cb.FotoHojasArriba WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END FotoHojasArriba,
+           CASE cb.FotoHojasAbajo WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END FotoHojasAbajo,
+           CASE cb.FotoArbolCompleto WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END FotoArbolCompleto,
+           CASE cb.FotoCorteza WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END FotoCorteza,
+           CASE cb.VirutaIncluida WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END VirutaIncluida,
+           CASE cb.CortezaIncluida WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END CortezaIncluida,
+           CASE cb.MaderaIncluida WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END MaderaIncluida,
            CASE WHEN cb.Observaciones IS NULL THEN '' ELSE cb.Observaciones END Observaciones
       FROM TAXONOMIA_ColectaBotanica cb
            LEFT JOIN
@@ -2562,14 +2562,14 @@ CREATE VIEW VW_ColectaBotanica AS
 -- View: VW_Contacto
 CREATE VIEW VW_Contacto AS
     SELECT UPMID,
-           CASE TipoContacto WHEN 1 THEN 'Presencial' WHEN 0 THEN 'Remoto' END TipoContacto,
+           CASE TipoContacto WHEN TRUE THEN 'Presencial' WHEN FALSE THEN 'Remoto' END TipoContacto,
            Nombre,
            Direccion,
-           CASE TipoTelefono WHEN 1 THEN 'Teléfono fijo' WHEN 0 THEN 'Teléfono móvil' END TipoTelefono,
+           CASE TipoTelefono WHEN TRUE THEN 'Teléfono fijo' WHEN FALSE THEN 'Teléfono móvil' END TipoTelefono,
            NumeroTelefono,
-           CASE tieneCorreo WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END CorreoElectronico,
+           CASE tieneCorreo WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END CorreoElectronico,
            DireccionCorreo,
-           CASE TieneRadio WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END Radio,
+           CASE TieneRadio WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END Radio,
            Canal,
            Frecuencia,
            Observaciones
@@ -2636,14 +2636,14 @@ CREATE VIEW VW_Informacion_General_UPM AS
            up.Predio,
            up.Paraje,
            te.Descripcion AS TipoTenencia,
-           CASE ma.A WHEN 1 THEN 'A' WHEN 0 THEN NULL END A,
-           CASE ma.B WHEN 1 THEN 'B' WHEN 0 THEN NULL END B,
-           CASE ma.C WHEN 1 THEN 'C' WHEN 0 THEN NULL END C,
-           CASE ma.D WHEN 1 THEN 'D' WHEN 0 THEN NULL END D,
-           CASE ma.E WHEN 1 THEN 'E' WHEN 0 THEN NULL END E,
-           CASE ma.F WHEN 1 THEN 'F' WHEN 0 THEN NULL END F,
-           CASE ma.G WHEN 1 THEN 'G' WHEN 0 THEN NULL END G,
-           CASE ma.H WHEN 1 THEN 'H' WHEN 0 THEN NULL END H
+           CASE ma.A WHEN TRUE THEN 'A' WHEN FALSE THEN NULL END A,
+           CASE ma.B WHEN TRUE THEN 'B' WHEN FALSE THEN NULL END B,
+           CASE ma.C WHEN TRUE THEN 'C' WHEN FALSE THEN NULL END C,
+           CASE ma.D WHEN TRUE THEN 'D' WHEN FALSE THEN NULL END D,
+           CASE ma.E WHEN TRUE THEN 'E' WHEN FALSE THEN NULL END E,
+           CASE ma.F WHEN TRUE THEN 'F' WHEN FALSE THEN NULL END F,
+           CASE ma.G WHEN TRUE THEN 'G' WHEN FALSE THEN NULL END G,
+           CASE ma.H WHEN TRUE THEN 'H' WHEN FALSE THEN NULL END H
       FROM UPM_UPM up
            LEFT JOIN
            UPM_MallaPuntos ma ON up.UPMID = ma.UPMID
@@ -2665,7 +2665,7 @@ CREATE VIEW VW_LongitudComponente AS
            ce.Nombre AS Especie,
            inf.Nombre AS Infraespecie,
            lc.NombreComun,
-           CASE lc.EsColecta WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END EsColecta,
+           CASE lc.EsColecta WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END EsColecta,
            lc.Segmento1,
            lc.Segmento2,
            lc.Segmento3,
@@ -2719,7 +2719,7 @@ CREATE VIEW VW_Repoblado AS
            es.Nombre AS Especie,
            inf.Nombre AS Infraespecie,
            re.NombreComun,
-           CASE re.EsColecta WHEN 0 THEN 'NO' WHEN 1 THEN 'SI' END EsColecta,
+           CASE re.EsColecta WHEN 1 THEN 'NO' WHEN 0 THEN 'SI' END EsColecta,
            re.Frecuencia025150 AS Frecuencia025,
            re.Edad025150 AS Edad025,
            re.Frecuencia151275 AS Frecuencia151,
@@ -2840,7 +2840,7 @@ CREATE VIEW VW_Sitio_Cobertura AS
            co.Hojarasca,
            co.Grava,
            co.Otros,
-           CASE si.SotobosqueFuera WHEN 1 THEN 'SI' WHEN 0 THEN 1 END SotobosqueFuera,
+           CASE si.SotobosqueFuera WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END SotobosqueFuera,
            si.PorcentajeSotobosqueFuera
       FROM SITIOS_CoberturaSuelo co
            LEFT JOIN
@@ -2857,7 +2857,7 @@ CREATE VIEW VW_SotoBosque AS
            CASE WHEN es.Nombre IS NULL THEN '' ELSE es.Nombre END Especie,
            inf.Nombre AS Infraespecie,
            sb.NombreComun,
-           CASE sb.EsColecta WHEN 0 THEN 'NO' ELSE 'SI' END EsColecta,
+           CASE sb.EsColecta WHEN FALSE THEN 'NO' ELSE 'SI' END EsColecta,
            sb.Frecuencia025150,
            sb.Cobertura025150,
            sb.Frecuencia151275,
@@ -2866,7 +2866,7 @@ CREATE VIEW VW_SotoBosque AS
            sb.Cobertura275,
            vi.Descripcion AS Vigor,
            da.Clave AS ClaveDanio,
-           CASE WHEN sb.PorcentajeDanio IS NULL THEN '' ELSE sb.PorcentajeDanio END PorcentajeDanio,
+           sb.PorcentajeDanio,
            sb.ClaveColecta
       FROM TAXONOMIA_SotoBosque sb
            LEFT JOIN
@@ -2935,7 +2935,7 @@ CREATE VIEW VW_VegetacionMayorGregarios AS
            gen.Nombre AS Genero,
            esp.Nombre AS Especie,
            inf.Nombre AS Infraespecie,
-           CASE vm.EsColecta WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END EsColecta,
+           CASE vm.EsColecta WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END EsColecta,
            vm.NombreComun,
            fc.Descripcion AS FormaCrecimiento,
            dc.Descripcion AS DensidadColonia,
@@ -3009,7 +3009,7 @@ CREATE VIEW VW_VegetacionMayorIndividual AS
            gen.Nombre AS Genero,
            esp.Nombre AS Especie,
            inf.Nombre AS Infraespecie,
-           CASE vm.EsColecta WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END EsColecta,
+           CASE vm.EsColecta WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END EsColecta,
            vm.NombreComun,
            fg.Descripcion AS FormaGeometrica,
            df.Descripcion AS DensidadFollaje,
@@ -3080,7 +3080,7 @@ CREATE VIEW VW_VegetacionMenor AS
            esp.Nombre AS Especie,
            inf.Nombre AS Infraespecie,
            vm.NombreComun,
-           CASE EsColecta WHEN 1 THEN 'SI' WHEN 0 THEN 'NO' END EsColecta,
+           CASE EsColecta WHEN TRUE THEN 'SI' WHEN FALSE THEN 'NO' END EsColecta,
            fv.Descripcion AS FormaVida,
            con.Descripcion AS Condicion,
            vm.Numero0110,
