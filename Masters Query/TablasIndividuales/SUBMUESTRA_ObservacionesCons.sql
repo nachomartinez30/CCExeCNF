@@ -8,7 +8,7 @@ submuestraObservaciones.Observaciones
 FROM
 SUBMUESTRA_Observaciones submuestraObservaciones
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=submuestraObservaciones.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=submuestraObservaciones.SitioID and submuestraObservaciones.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=submuestraObservaciones.UPMID
 
 GROUP BY

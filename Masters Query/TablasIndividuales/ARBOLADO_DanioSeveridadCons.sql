@@ -16,7 +16,7 @@ FROM
 
 ARBOLADO_DanioSeveridad  danioSeveridad
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=danioSeveridad.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=danioSeveridad.SitioID and danioSeveridad.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=danioSeveridad.UPMID
 
 LEFT JOIN CAT_AgenteDanio agenteDanio ON agenteDanio.AgenteDanioID =danioSeveridad.AgenteDanioID

@@ -14,7 +14,7 @@ carcava.Profundidad
 FROM
 SUELO_Carcava carcava
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=carcava.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=carcava.SitioID and carcava.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=carcava.UPMID
 
 GROUP BY

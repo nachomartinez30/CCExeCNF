@@ -28,7 +28,7 @@ repobladoVM.ClaveColecta
 FROM
 TAXONOMIA_RepobladoVM	repobladoVM
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=repobladoVM.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=repobladoVM.SitioID and repobladoVM.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=repobladoVM.UPMID
 
 LEFT JOIN CAT_TipoFormaVidaRepobladoVM	tipoFormaVidaRepobladoVM ON	tipoFormaVidaRepobladoVM.FormaVidaRepobladoVMID = repobladoVM.FormaVidaID

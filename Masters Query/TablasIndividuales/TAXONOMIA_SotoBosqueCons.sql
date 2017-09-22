@@ -29,7 +29,7 @@ sotoBosque.ClaveColecta
 FROM
 TAXONOMIA_SotoBosque sotoBosque
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=sotoBosque.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=sotoBosque.SitioID and sotoBosque.UPMID = sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=sotoBosque.UPMID
  
 LEFT JOIN CAT_FamiliaEspecie 	familiaEspecie ON familiaEspecie.FamiliaID = sotoBosque.FamiliaID

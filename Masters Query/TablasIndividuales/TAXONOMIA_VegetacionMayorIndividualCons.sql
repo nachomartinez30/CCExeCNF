@@ -30,7 +30,7 @@ FROM
 TAXONOMIA_VegetacionMayorIndividual vegetacionMayorIndividual
 
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=vegetacionMayorIndividual.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=vegetacionMayorIndividual.SitioID and vegetacionMayorIndividual.UPMID = sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=vegetacionMayorIndividual.UPMID
 
 LEFT JOIN CAT_FamiliaEspecie 	familiaEspecie ON familiaEspecie.FamiliaID = vegetacionMayorIndividual.FamiliaID

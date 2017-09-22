@@ -18,7 +18,7 @@ materialLenioso100.CienHoras
 FROM
 CARBONO_MaterialLenioso100 materialLenioso100
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=materialLenioso100.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=materialLenioso100.SitioID  and materialLenioso100.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=materialLenioso100.UPMID
 
 GROUP BY

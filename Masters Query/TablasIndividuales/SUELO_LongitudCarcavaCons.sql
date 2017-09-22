@@ -13,7 +13,7 @@ longitudCarcava.Longitud
 FROM
 SUELO_LongitudCarcava longitudCarcava
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=longitudCarcava.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=longitudCarcava.SitioID and longitudCarcava.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=longitudCarcava.UPMID
 
 GROUP BY

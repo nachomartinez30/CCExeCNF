@@ -15,7 +15,7 @@ porcentajeArbolado.Descripcion AS Severidad
 FROM
 REPOBLADO_AgenteDanio	agenteDanioRepoblado
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=agenteDanioRepoblado.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=agenteDanioRepoblado.SitioID  and agenteDanioRepoblado.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=agenteDanioRepoblado.UPMID
 
 LEFT JOIN CAT_AgenteDanio	agenteDanio ON agenteDanio.AgenteDanioID= agenteDanioRepoblado.AgenteDanioID

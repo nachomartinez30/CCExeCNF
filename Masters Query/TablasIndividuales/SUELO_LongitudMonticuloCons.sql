@@ -13,7 +13,7 @@ longitudMonticulo.Longitud
 FROM
 SUELO_LongitudMonticulo longitudMonticulo
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=longitudMonticulo.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=longitudMonticulo.SitioID and longitudMonticulo.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=longitudMonticulo.UPMID
 
 GROUP BY

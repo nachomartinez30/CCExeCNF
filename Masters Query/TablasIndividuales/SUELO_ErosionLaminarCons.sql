@@ -14,7 +14,7 @@ erosionLaminar.Largo
 FROM
 SUELO_ErosionLaminar erosionLaminar
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=erosionLaminar.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=erosionLaminar.SitioID and erosionLaminar.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=erosionLaminar.UPMID
 
 GROUP BY

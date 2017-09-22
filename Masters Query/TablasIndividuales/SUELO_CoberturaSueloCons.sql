@@ -13,7 +13,7 @@ coberturaSuelo.Pendiente
 FROM
 SUELO_CoberturaSuelo coberturaSuelo
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=coberturaSuelo.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=coberturaSuelo.SitioID  and coberturaSuelo.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=coberturaSuelo.UPMID
 
 GROUP BY

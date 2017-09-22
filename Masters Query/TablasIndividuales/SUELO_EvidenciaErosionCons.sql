@@ -15,7 +15,7 @@ tipoLecturaTierra.Descripcion
 FROM
 SUELO_EvidenciaErosion evidenciaErosion
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=evidenciaErosion.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=evidenciaErosion.SitioID  and evidenciaErosion.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=evidenciaErosion.UPMID
 
 

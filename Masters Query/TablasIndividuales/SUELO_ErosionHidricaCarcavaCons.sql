@@ -17,7 +17,7 @@ erosionHidricaCarcava.Azimut
 FROM
 SUELO_ErosionHidricaCarcava erosionHidricaCarcava
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=erosionHidricaCarcava.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=erosionHidricaCarcava.SitioID  and erosionHidricaCarcava.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=erosionHidricaCarcava.UPMID
 
 GROUP BY

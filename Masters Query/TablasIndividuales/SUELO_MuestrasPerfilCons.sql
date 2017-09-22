@@ -23,7 +23,7 @@ muestrasPerfil.Observaciones
 FROM
 SUELO_MuestrasPerfil muestrasPerfil
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=muestrasPerfil.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=muestrasPerfil.SitioID and muestrasPerfil.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=muestrasPerfil.UPMID
 
 GROUP BY

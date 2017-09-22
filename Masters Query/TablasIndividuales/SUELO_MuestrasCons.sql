@@ -20,7 +20,7 @@ muestras.ClaveColecta
 FROM
 SUELO_Muestras muestras
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=muestras.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=muestras.SitioID and muestras.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=muestras.UPMID
 
 LEFT JOIN CAT_ProfundidadMuestras profundidadMuestras ON profundidadMuestras.ProfundidadMuestraID= muestras.ProfundidadID

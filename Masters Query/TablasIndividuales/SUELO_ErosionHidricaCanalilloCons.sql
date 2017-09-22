@@ -17,7 +17,7 @@ erosionHidricaCanalillo.Azimut
 FROM
 SUELO_ErosionHidricaCanalillo erosionHidricaCanalillo
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=erosionHidricaCanalillo.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=erosionHidricaCanalillo.SitioID and erosionHidricaCanalillo.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=erosionHidricaCanalillo.UPMID
 
 GROUP BY

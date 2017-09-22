@@ -22,7 +22,7 @@ profundidad.Clave3060
 FROM
 SUELO_Profundidad profundidad
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=profundidad.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=profundidad.SitioID and profundidad.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=profundidad.UPMID
 
 GROUP BY

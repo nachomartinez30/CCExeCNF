@@ -17,7 +17,7 @@ medicionCarcavas.Volumen
 FROM
 SUELO_MedicionCarcavas medicionCarcavas
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=medicionCarcavas.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=medicionCarcavas.SitioID and medicionCarcavas.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=medicionCarcavas.UPMID
 
 GROUP BY

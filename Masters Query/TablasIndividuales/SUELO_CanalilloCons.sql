@@ -15,7 +15,7 @@ canalillo.Profundidad
 FROM
 SUELO_Canalillo canalillo
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=canalillo.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=canalillo.SitioID and canalillo.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=canalillo.UPMID
 
 GROUP BY

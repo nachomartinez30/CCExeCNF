@@ -16,7 +16,7 @@ medicionCanalillos.Volumen
 FROM
 SUELO_MedicionCanalillos medicionCanalillos
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=medicionCanalillos.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=medicionCanalillos.SitioID and medicionCanalillos.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=medicionCanalillos.UPMID
 
 GROUP BY

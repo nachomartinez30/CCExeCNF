@@ -13,7 +13,7 @@ pedestal.Altura
 FROM
 SUELO_Pedestal pedestal 
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=pedestal.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=pedestal.SitioID and pedestal.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=pedestal.UPMID
 
 GROUP BY

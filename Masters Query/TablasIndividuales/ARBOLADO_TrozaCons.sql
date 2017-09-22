@@ -15,7 +15,7 @@ tipoTroza.Descripcion as TipoTroza
 FROM
 ARBOLADO_Troza	arboladoTroza
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=arboladoTroza.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=arboladoTroza.SitioID   and arboladoTroza.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=arboladoTroza.UPMID
 
 LEFT JOIN CAT_TipoTroza	tipoTroza ON tipoTroza.TipoTrozaID=arboladoTroza.TipoTrozaID

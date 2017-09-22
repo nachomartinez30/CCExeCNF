@@ -22,7 +22,7 @@ hojarasca.ClaveF
 FROM
 SUELO_Hojarasca hojarasca
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=hojarasca.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=hojarasca.SitioID and hojarasca.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=hojarasca.UPMID
 
 LEFT JOIN CAT_TipoHojarasca tipoHojarasca ON tipoHojarasca.TipoHojarascaID = hojarasca.TipoHojarascaID

@@ -32,10 +32,10 @@ suelo.VolumenMonticulos
 
 FROM
 SUELO_Suelo suelo
-LEFT JOIN CAT_UsoSuelo usoSuelo ON usoSuelo.UsoSueloID = suelo.UsoSueloID
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=suelo.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=suelo.SitioID and suelo.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=suelo.UPMID
+LEFT JOIN CAT_UsoSuelo usoSuelo ON usoSuelo.UsoSueloID = suelo.UsoSueloID
 
 GROUP BY
 suelo.UPMID,

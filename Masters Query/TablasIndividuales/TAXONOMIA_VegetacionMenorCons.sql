@@ -31,7 +31,7 @@ vegetacionMenor.ClaveColecta
 FROM
 TAXONOMIA_VegetacionMenor vegetacionMenor
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=vegetacionMenor.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=vegetacionMenor.SitioID and vegetacionMenor.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=vegetacionMenor.UPMID
 
 LEFT JOIN CAT_FamiliaEspecie 	familiaEspecie ON familiaEspecie.FamiliaID = vegetacionMenor.FamiliaID

@@ -14,7 +14,7 @@ pavimentoErosion.Diametro
 FROM
 SUELO_PavimentoErosion  pavimentoErosion
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=pavimentoErosion.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=pavimentoErosion.SitioID and pavimentoErosion.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=pavimentoErosion.UPMID
 
 GROUP BY

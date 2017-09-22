@@ -28,7 +28,7 @@ repoblado.ClaveColecta
 FROM
 TAXONOMIA_Repoblado repoblado
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=repoblado.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=repoblado.SitioID and repoblado.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=repoblado.UPMID
 
 LEFT JOIN CAT_FamiliaEspecie 	familiaEspecie ON familiaEspecie.FamiliaID = repoblado.FamiliaID

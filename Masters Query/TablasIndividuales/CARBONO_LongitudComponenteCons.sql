@@ -34,7 +34,7 @@ longitudComponente.ClaveColecta
 FROM
 CARBONO_LongitudComponente	longitudComponente
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=longitudComponente.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=longitudComponente.SitioID   and longitudComponente.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=longitudComponente.UPMID
 
 LEFT JOIN CAT_FamiliaEspecie familia ON longitudComponente.FamiliaID = familia.FamiliaID 

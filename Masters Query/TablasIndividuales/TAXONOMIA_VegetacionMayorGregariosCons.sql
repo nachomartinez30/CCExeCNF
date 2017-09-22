@@ -30,7 +30,7 @@ vegetacionMayorGregarios.ClaveColecta
 FROM
 TAXONOMIA_VegetacionMayorGregarios vegetacionMayorGregarios
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=vegetacionMayorGregarios.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=vegetacionMayorGregarios.SitioID and vegetacionMayorGregarios.UPMID = sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=vegetacionMayorGregarios.UPMID
 
 LEFT JOIN CAT_FamiliaEspecie 	familiaEspecie ON familiaEspecie.FamiliaID = vegetacionMayorGregarios.FamiliaID

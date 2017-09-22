@@ -14,10 +14,11 @@
 -- 14	AEG
 -- 15	AG
 -- 16	ACG
--- 17	ACEFG
--- 18	AF
--- 19	AEF
--- 20	ACE
+
+-- 17	ACEFG*
+-- 18	AF*
+-- 19	AEF*
+-- 20	ACE*
 
 UPDATE 
 UPM_MallaPuntos
@@ -291,7 +292,7 @@ and H = 'false';
 --_________________________________________________
 
 
-UPDATE 
+/*UPDATE 
 UPM_MallaPuntos
 SET A= 1
 WHERE A= 'true';
@@ -362,7 +363,7 @@ UPDATE
 UPM_MallaPuntos
 SET H= 0
 WHERE H= 'false';
-
+*/
 
 --provedoores por region
 

@@ -14,7 +14,7 @@ costras.Diametro
 FROM
 SUELO_Costras costras
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=costras.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=costras.SitioID  and costras.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=costras.UPMID
 
 GROUP BY

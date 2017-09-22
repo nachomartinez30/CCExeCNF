@@ -18,7 +18,7 @@ FROM
 SUELO_VarillaErosion varillaErosion
 
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=varillaErosion.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=varillaErosion.SitioID and varillaErosion.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=varillaErosion.UPMID
 
 GROUP BY

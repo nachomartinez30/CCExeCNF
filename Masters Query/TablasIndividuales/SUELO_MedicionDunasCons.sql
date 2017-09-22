@@ -16,7 +16,7 @@ medicionDunas.Volumen
 FROM
 SUELO_MedicionDunas medicionDunas
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=medicionDunas.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=medicionDunas.SitioID and medicionDunas.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=medicionDunas.UPMID
 
 GROUP BY

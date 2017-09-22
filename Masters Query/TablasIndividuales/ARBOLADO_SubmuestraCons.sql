@@ -17,7 +17,7 @@ submuestra.GrozorCorteza
 FROM
 ARBOLADO_Submuestra	submuestra
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=submuestra.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=submuestra.SitioID and submuestra.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=submuestra.UPMID
 
 GROUP BY

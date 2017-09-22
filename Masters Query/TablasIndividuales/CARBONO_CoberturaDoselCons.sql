@@ -22,7 +22,7 @@ coberturaDosel.Punto10
 FROM
 CARBONO_CoberturaDosel coberturaDosel
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=coberturaDosel.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=coberturaDosel.SitioID   and coberturaDosel.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=coberturaDosel.UPMID
 
 GROUP BY

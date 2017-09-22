@@ -18,7 +18,7 @@ deformacionViento.Azimut
 FROM
 SUELO_DeformacionViento deformacionViento
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=deformacionViento.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=deformacionViento.SitioID  and deformacionViento.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=deformacionViento.UPMID
 
 GROUP BY

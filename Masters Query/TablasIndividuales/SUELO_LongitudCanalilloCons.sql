@@ -14,7 +14,7 @@ longitudCanalillo.Longitud
 FROM
 SUELO_LongitudCanalillo longitudCanalillo
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=longitudCanalillo.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=longitudCanalillo.SitioID and longitudCanalillo.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=longitudCanalillo.UPMID
 
 GROUP BY

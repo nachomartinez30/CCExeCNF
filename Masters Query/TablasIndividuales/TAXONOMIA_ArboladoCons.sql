@@ -51,7 +51,7 @@ arbolado.ClaveColecta
 
 FROM TAXONOMIA_Arbolado arbolado
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=arbolado.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=arbolado.SitioID and arbolado.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=arbolado.UPMID
 
 LEFT JOIN CAT_FamiliaEspecie familia ON arbolado.FamiliaID = familia.FamiliaID 

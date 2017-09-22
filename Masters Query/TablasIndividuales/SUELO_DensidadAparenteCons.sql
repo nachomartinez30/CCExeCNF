@@ -17,7 +17,7 @@ densidadAparente.Observaciones
 FROM
 SUELO_DensidadAparente densidadAparente
 
-JOIN SITIOS_Sitio sitio ON sitio.SitioID=densidadAparente.SitioID
+JOIN SITIOS_Sitio sitio ON sitio.SitioID=densidadAparente.SitioID and densidadAparente.UPMID=sitio.UPMID
 JOIN UPM_MallaPuntos upmMala ON upmMala.UPMID=densidadAparente.UPMID
 
 GROUP BY
