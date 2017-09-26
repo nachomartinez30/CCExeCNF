@@ -292,7 +292,7 @@ and H = 'false';
 --_________________________________________________
 
 
-/*UPDATE 
+UPDATE 
 UPM_MallaPuntos
 SET A= 1
 WHERE A= 'true';
@@ -363,21 +363,21 @@ UPDATE
 UPM_MallaPuntos
 SET H= 0
 WHERE H= 'false';
-*/
+
 
 --provedoores por region
 
 UPDATE 
 UPM_MallaPuntos
 SET ProveedorID= 1--DIAAPROY
-WHERE Region= 'CENTRO - SUR';
+WHERE Region= 'CENTRO-SUR';
 
 UPDATE 
 UPM_MallaPuntos
 SET ProveedorID= 2 --INYDES
 WHERE Region= 'NOROESTE'
-OR (Region= 'NORTE - NORESTE')
-OR (Region= 'CENTRO - NORTE - OCCIDENTE');
+OR (Region= 'NORTE-NORESTE')
+OR (Region= 'CENTRO-NORTE-OCCIDENTE');
 
 UPDATE 
 UPM_MallaPuntos
