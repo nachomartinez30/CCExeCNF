@@ -1,5 +1,5 @@
 --Autor @ Oscar Ignacio Martinez Diaz
---debe haber por lo menos un 1 como resultado de la consulta
+--debe haber por lo menos un 1 como resultado de la consulta para ser modulo G
 SELECT
 EXISTS(
 	SELECT 1 

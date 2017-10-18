@@ -6,13 +6,13 @@ EXISTS(
 	SELECT 1 
 	FROM  SUELO_Hojarasca hojarasca  
 	WHERE
-	Hojarasca.UPMID= 
+	hojarasca.UPMID= 
 ) AS Hojarasca,
 
 EXISTS(
 	SELECT 1 
 	FROM  SUELO_MuestrasPerfil muestrasPerfil  
 	WHERE
-	MuestrasPerfil.UPMID= 
+	muestrasPerfil.UPMID= 
 ) AS MuestrasPerfil
 
