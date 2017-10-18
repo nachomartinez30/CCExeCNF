@@ -7,6 +7,7 @@
 -- 6	ACD
 -- 7	ACDE
 -- 8	ACDEF
+-- 9	ACE
 -- 10	ACH
 -- 11	AH
 -- 12	AEH
@@ -18,9 +19,8 @@
 -- 17	ACEFG*
 -- 18	AF*
 -- 19	AEF*
--- 20	ACE*
 
-UPDATE 
+UPDATE --A
 UPM_MallaPuntos
 SET SecuenciaID= 1
 WHERE 
@@ -33,20 +33,23 @@ and F = 'false'
 and G = 'false'
 and H = 'false';
 
-UPDATE 
+
+UPDATE --AC
 UPM_MallaPuntos
 SET SecuenciaID= 2
 WHERE 
 	A = 'true'
 and B = 'false'
-and C = 'true'
+and C = 'false'
 and D = 'false'
 and E = 'false'
 and F = 'false'
 and G = 'false'
 and H = 'false';
 
-UPDATE 
+
+
+UPDATE --ACEG
 UPM_MallaPuntos
 SET SecuenciaID= 3
 WHERE 
@@ -59,7 +62,9 @@ and F = 'false'
 and G = 'true'
 and H = 'false';
 
-UPDATE 
+
+
+UPDATE --AE
 UPM_MallaPuntos
 SET SecuenciaID= 4
 WHERE 
@@ -72,7 +77,9 @@ and F = 'false'
 and G = 'false'
 and H = 'false';
 
-UPDATE 
+
+
+UPDATE --ACDF
 UPM_MallaPuntos
 SET SecuenciaID= 5
 WHERE 
@@ -85,7 +92,9 @@ and F = 'true'
 and G = 'false'
 and H = 'false';
 
-UPDATE 
+
+
+UPDATE --ACD
 UPM_MallaPuntos
 SET SecuenciaID= 6
 WHERE 
@@ -98,20 +107,24 @@ and F = 'false'
 and G = 'false'
 and H = 'false';
 
-UPDATE 
+
+
+UPDATE --ACDE
 UPM_MallaPuntos
 SET SecuenciaID= 7
 WHERE 
 	A = 'true'
 and B = 'false'
-and C = 'true'
-and D = 'true'
-and E = 'true'
+and C = 'false'
+and D = 'false'
+and E = 'false'
 and F = 'false'
 and G = 'false'
 and H = 'false';
 
-UPDATE 
+
+
+UPDATE --ACDEF
 UPM_MallaPuntos
 SET SecuenciaID= 8
 WHERE 
@@ -124,7 +137,9 @@ and F = 'true'
 and G = 'false'
 and H = 'false';
 
-UPDATE 
+
+
+UPDATE	-- ACE
 UPM_MallaPuntos
 SET SecuenciaID= 9
 WHERE 
@@ -132,14 +147,31 @@ WHERE
 and B = 'false'
 and C = 'true'
 and D = 'false'
+and E = 'true'
+and F = 'false'
+and G = 'false'
+and H = 'false';
+
+
+
+UPDATE -- ACH
+UPM_MallaPuntos
+SET SecuenciaID= 10
+WHERE 
+	A = 'true'
+and B = 'false'
+and C = 'true'
+and D = 'false'
 and E = 'false'
 and F = 'false'
 and G = 'false'
 and H = 'true';
 
-UPDATE 
+
+
+UPDATE -- AH
 UPM_MallaPuntos
-SET SecuenciaID= 10
+SET SecuenciaID= 11
 WHERE 
 	A = 'true'
 and B = 'false'
@@ -150,9 +182,11 @@ and F = 'false'
 and G = 'false'
 and H = 'true';
 
-UPDATE 
+
+
+UPDATE --AEH 
 UPM_MallaPuntos
-SET SecuenciaID= 11
+SET SecuenciaID= 12
 WHERE 
 	A = 'true'
 and B = 'false'
@@ -163,9 +197,11 @@ and F = 'false'
 and G = 'false'
 and H = 'true';
 
-UPDATE 
+
+
+UPDATE --ACEH
 UPM_MallaPuntos
-SET SecuenciaID= 12
+SET SecuenciaID= 13
 WHERE 
 	A = 'true'
 and B = 'false'
@@ -176,20 +212,9 @@ and F = 'false'
 and G = 'false'
 and H = 'true';
 
-UPDATE 
-UPM_MallaPuntos
-SET SecuenciaID= 13
-WHERE 
-	A = 'false'
-and B = 'false'
-and C = 'false'
-and D = 'false'
-and E = 'false'
-and F = 'false'
-and G = 'false'
-and H = 'false';
 
-UPDATE 
+
+UPDATE -- AEG
 UPM_MallaPuntos
 SET SecuenciaID= 14
 WHERE 
@@ -203,7 +228,8 @@ and G = 'true'
 and H = 'false';
 
 
-UPDATE 
+
+UPDATE -- AG
 UPM_MallaPuntos
 SET SecuenciaID= 15
 WHERE 
@@ -216,7 +242,9 @@ and F = 'false'
 and G = 'true'
 and H = 'false';
 
-UPDATE 
+
+
+UPDATE -- ACG
 UPM_MallaPuntos
 SET SecuenciaID= 16
 WHERE 
@@ -231,7 +259,7 @@ and H = 'false';
 
 
 
-UPDATE 
+UPDATE -- ACEFG*
 UPM_MallaPuntos
 SET SecuenciaID= 17
 WHERE 
@@ -245,7 +273,8 @@ and G = 'true'
 and H = 'false';
 
 
-UPDATE 
+
+UPDATE -- AF*
 UPM_MallaPuntos
 SET SecuenciaID= 18
 WHERE 
@@ -259,7 +288,8 @@ and G = 'false'
 and H = 'false';
 
 
-UPDATE 
+
+UPDATE -- AEF*
 UPM_MallaPuntos
 SET SecuenciaID= 19
 WHERE 
@@ -269,20 +299,6 @@ and C = 'false'
 and D = 'false'
 and E = 'true'
 and F = 'true'
-and G = 'false'
-and H = 'false';
-
-
-UPDATE 
-UPM_MallaPuntos
-SET SecuenciaID= 20
-WHERE 
-	A = 'true'
-and B = 'false'
-and C = 'true'
-and D = 'false'
-and E = 'true'
-and F = 'false'
 and G = 'false'
 and H = 'false';
 
